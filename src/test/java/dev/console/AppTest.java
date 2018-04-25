@@ -54,7 +54,16 @@ public class AppTest {
 	{
 		String expression = "1+a";
 		when(calculService.additionner(expression)).thenThrow(CalculException.class);
-		this.app.evaluer(expression);
+		
+		try
+		{
+			this.app.evaluer(expression);
+		}
+		catch(CalculException ex)
+		{
+			String msg = ex.getMessage();
+			System.out.println(msg);
+		}
 		verify(calculService).additionner(expression);
 		
 		assertThat(systemOutRule.getLog().contains("L'expression " + expression + " est invalide."));

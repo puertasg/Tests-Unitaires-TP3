@@ -23,7 +23,7 @@ public class CalculService {
 			}
 			catch(NumberFormatException ex)
 			{
-				throw new CalculException(ex.getMessage());
+				throw new CalculException("L'expression " + expression + " est invalide.");
 			}
 		}
 		
