@@ -13,10 +13,11 @@ public class CalculServiceTest {
 	
 	private static final Logger LOG = LoggerFactory.getLogger(CalculService.class);
 	private CalculService calc;
+	
 	@Before
 	public void setUp()
 	{
-		CalculService calc = new CalculService();
+		calc = new CalculService();
 	}
 	
 	@Test
