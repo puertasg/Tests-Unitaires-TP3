@@ -39,7 +39,9 @@ public class CalculServiceTest {
 		LOG.info("Etant donné, une instance de la classe CalculService");
 		LOG.info("Lorsque j'évalue l'addition de l'expression invalide 1+3+a");
 		
-		assertThatThrownBy(() -> { somme = calc.additionner("1+3+a"); }).isInstanceOf(CalculException.class);
+		assertThatThrownBy(() -> { 
+			somme = calc.additionner("1+3+a"); 
+		}).isInstanceOf(CalculException.class);
 		
 		LOG.info("Alors j'obtiens une exception CalculException");
 	}
