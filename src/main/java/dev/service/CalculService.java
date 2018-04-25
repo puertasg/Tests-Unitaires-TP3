@@ -9,6 +9,15 @@ public class CalculService {
 	public int additionner(String expression)
 	{
 		LOG.debug("Evaluation de l'expression " + expression);
-		return 0;
+		
+		String[] nombres = expression.split("[+]");
+		int somme = 0;
+		
+		for (int i = 0; i < nombres.length; i++) 
+		{
+			somme+=Integer.parseInt(nombres[i]);
+		}
+		
+		return somme;
 	}
 }
