@@ -1,26 +1,36 @@
 package dev.console;
 
-import dev.service.AppService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import dev.service.AppService;
-
+import dev.service.CalculService;
+import java.util.Scanner;
 /**
  * 
  * @author Gauthier Puertas
- * Projet ayant pour but de mettre en action la librairie slf4j et ses différents types de loggers
+ * Projet ayant pour but de mettre en action la librairie slf4j et ses diffï¿½rents types de loggers
  *
  */
 public class App {
 	
-	private static final Logger LOG = LoggerFactory.getLogger(App.class);
-
-	public static void main(String[] args) {
-		
-		LOG.info("Bonjour Slf4J ! ");
-		LOG.info("Implémentation Logback");
-		new AppService().exectuer("valeur 1");
+	private Scanner scanner;
+	private CalculService calculatrice;
+	
+	public App(Scanner sc, CalculService calc)
+	{
+		this.scanner = sc;
+		this.calculatrice = calc;
 	}
-
+	
+	protected void afficherTitre()
+	{
+		
+	}
+	
+	public void demarrer()
+	{
+		
+	}
+	
+	protected void evaluer(String expression)
+	{
+		
+	}
 }
