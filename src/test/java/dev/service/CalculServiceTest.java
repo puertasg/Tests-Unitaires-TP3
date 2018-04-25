@@ -22,4 +22,6 @@ public class CalculServiceTest {
 		LOG.info("Alors j'obtiens le résultat 8");
 		assertEquals(8, somme);
 	}
+	
+	@Test
 }
