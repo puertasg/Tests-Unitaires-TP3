@@ -23,21 +23,21 @@ public class CalculServiceTest {
 	@Test
 	public void testAdditionner() throws Exception
 	{
-		LOG.debug("Etant donné, une instance de la classe CalculService");
-		LOG.debug("Lorsque j'évalue l'addition de l'expression 1+3+4");
+		LOG.info("Etant donné, une instance de la classe CalculService");
+		LOG.info("Lorsque j'évalue l'addition de l'expression 1+3+4");
 		int somme = calc.additionner("1+3+4");
 		
-		LOG.debug("Alors j'obtiens le résultat 8");
+		LOG.info("Alors j'obtiens le résultat 8");
 		assertEquals(8, somme);
 	}
 	
 	@Test(expected=CalculException.class)
 	public void testInvalidAdditionner()
 	{
-		LOG.debug("Etant donné, une instance de la classe CalculService");
-		LOG.debug("Lorsque j'évalue l'addition de l'expression invalide 1+3+a");
+		LOG.info("Etant donné, une instance de la classe CalculService");
+		LOG.info("Lorsque j'évalue l'addition de l'expression invalide 1+3+a");
 		int somme = calc.additionner("1+3+a");
 		
-		LOG.debug("Alors j'obtiens une exception CalculException");
+		LOG.info("Alors j'obtiens une exception CalculException");
 	}
 }
