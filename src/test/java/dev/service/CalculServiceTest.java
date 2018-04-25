@@ -1,6 +1,6 @@
 package dev.service;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -30,15 +30,16 @@ public class CalculServiceTest {
 		somme = calc.additionner("1+3+4");
 		
 		LOG.info("Alors j'obtiens le résultat 8");
-		assertEquals(8, somme);
+		assertThat(somme).isEqualTo(8);
 	}
 	
-	@Test(expected=CalculException.class)
+	@Test
 	public void testInvalidAdditionner()
 	{
 		LOG.info("Etant donné, une instance de la classe CalculService");
 		LOG.info("Lorsque j'évalue l'addition de l'expression invalide 1+3+a");
-		somme = calc.additionner("1+3+a");
+		
+		assertThatThrownBy(() -> { somme = calc.additionner("1+3+a"); }).isInstanceOf(CalculException.class);
 		
 		LOG.info("Alors j'obtiens une exception CalculException");
 	}
