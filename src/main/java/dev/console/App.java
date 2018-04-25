@@ -26,7 +26,7 @@ public class App {
 	
 	public void demarrer()
 	{
-		
+		afficherTitre();
 	}
 	
 	protected void evaluer(String expression)
