@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import dev.exception.CalculException;
+
 public class CalculServiceTest {
 	
 	private static final Logger LOG = LoggerFactory.getLogger(CalculService.class);
@@ -23,5 +25,9 @@ public class CalculServiceTest {
 		assertEquals(8, somme);
 	}
 	
-	@Test
+	@Test(expected=CalculException.class)
+	public void testInvalidAdditionner()
+	{
+		
+	}
 }
