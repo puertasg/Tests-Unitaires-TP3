@@ -31,6 +31,7 @@ public class App {
 	
 	protected void evaluer(String expression)
 	{
-		
+		int resultat = this.calculatrice.additionner(expression);
+		System.out.println(expression + "=" + resultat);
 	}
 }
