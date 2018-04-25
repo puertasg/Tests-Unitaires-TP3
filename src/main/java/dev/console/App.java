@@ -33,9 +33,10 @@ public class App {
 		
 		while(!StringUtils.equals(input, "fin"))
 		{
-			input = this.scanner.next();
 			System.out.println("Veuillez saisir une expression :");
+			input = this.scanner.next();
 		}
+		
 		System.out.println("Aurevoir :-(");
 	}
 	
