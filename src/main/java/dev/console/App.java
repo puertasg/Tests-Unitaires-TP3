@@ -3,6 +3,8 @@ package dev.console;
 import dev.service.CalculService;
 import java.util.Scanner;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 /**
  * 
  * @author Gauthier Puertas
@@ -11,6 +13,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class App {
 	
+	private static final Logger LOG = LoggerFactory.getLogger(App.class);
 	private Scanner scanner;
 	private CalculService calculatrice;
 	
@@ -22,27 +25,33 @@ public class App {
 	
 	protected void afficherTitre()
 	{
-		System.out.println("**** Application Calculatrice ****");
+		LOG.info("**** Application Calculatrice ****");
 	}
 	
 	public void demarrer()
 	{
 		afficherTitre();
 		
-		String input = this.scanner.next();
+		String input = "";
 		
 		while(!StringUtils.equals(input, "fin"))
 		{
-			System.out.println("Veuillez saisir une expression :");
+			LOG.info("Veuillez saisir une expression :");
 			input = this.scanner.next();
+			
+			this.evaluer(input);
 		}
 		
-		System.out.println("Aurevoir :-(");
+		LOG.info("Aurevoir :-(");
 	}
 	
 	protected void evaluer(String expression)
 	{
 		int resultat = this.calculatrice.additionner(expression);
-		System.out.println(expression + "=" + resultat);
+		if(!StringUtils.equals(expression, "fin"))
+		{
+			LOG.info(expression + "=" + resultat);
+		}
+		
 	}
 }
