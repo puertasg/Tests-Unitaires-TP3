@@ -2,6 +2,7 @@ package dev.console;
 
 import dev.service.CalculService;
 import java.util.Scanner;
+import org.apache.commons.lang3.StringUtils;
 /**
  * 
  * @author Gauthier Puertas
@@ -27,6 +28,11 @@ public class App {
 	public void demarrer()
 	{
 		afficherTitre();
+		String input = this.scanner.next();
+		if(StringUtils.equals(input, "fin"))
+		{
+			System.out.println("Aurevoir :-(");
+		}
 	}
 	
 	protected void evaluer(String expression)
