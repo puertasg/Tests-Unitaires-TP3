@@ -3,6 +3,8 @@ package dev.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import dev.exception.CalculException;
+
 public class CalculService {
 	
 	private static final Logger LOG = LoggerFactory.getLogger(CalculService.class);
@@ -15,7 +17,14 @@ public class CalculService {
 		
 		for (int i = 0; i < nombres.length; i++) 
 		{
-			somme+=Integer.parseInt(nombres[i]);
+			try
+			{
+				somme+=Integer.parseInt(nombres[i]);
+			}
+			catch(NumberFormatException ex)
+			{
+				throw new CalculException(ex.getMessage());
+			}
 		}
 		
 		return somme;
