@@ -1,5 +1,6 @@
 package dev.console;
 
+import dev.exception.CalculException;
 import dev.service.CalculService;
 import org.junit.Before;
 import org.junit.Rule;
@@ -46,6 +47,17 @@ public class AppTest {
 		
 		LOG.info("Alors dans la console, s'affiche 1+34=35");
 		assertThat(systemOutRule.getLog()).contains("1+34=35");
+	}
+	
+	@Test
+	public void testInvalidExpression()
+	{
+		String expression = "1+a";
+		when(calculService.additionner(expression)).thenThrow(CalculException.class);
+		this.app.evaluer(expression);
+		verify(calculService).additionner(expression);
+		
+		assertThat(systemOutRule.getLog().contains("L'expression " + expression + " est invalide."));
 	}
 	
 	@Test
