@@ -28,11 +28,15 @@ public class App {
 	public void demarrer()
 	{
 		afficherTitre();
+		
 		String input = this.scanner.next();
-		if(StringUtils.equals(input, "fin"))
+		
+		while(!StringUtils.equals(input, "fin"))
 		{
-			System.out.println("Aurevoir :-(");
+			input = this.scanner.next();
+			System.out.println("Veuillez saisir une expression :");
 		}
+		System.out.println("Aurevoir :-(");
 	}
 	
 	protected void evaluer(String expression)
