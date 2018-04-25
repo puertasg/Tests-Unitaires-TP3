@@ -21,7 +21,7 @@ public class App {
 	
 	protected void afficherTitre()
 	{
-		
+		System.out.println("**** Application Calculatrice ****");
 	}
 	
 	public void demarrer()
